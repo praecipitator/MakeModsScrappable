@@ -1,0 +1,9 @@
+{
+  "Nickname": "MakeModsScrappable",
+  "Visibility": "Visible",
+  "OneLineDescription": "Makes object modifications scrappable",
+  "LongDescription": "Assigns scrap components to loose object modifications, based on the crafting recipe.\r\nRelevant for Weapon, Armor, or Robot mods.\r\n\r\nUnder Settings, you can set a \"return factor\", and which components to skip. \r\nThe default factor is 0.75, this means, 75% of the amount of any crafting component will be included in the loose mod.\r\n",
+  "PreferredAutoVersioning": "Default",
+  "RequiredMods": [],
+  "TargetedReleases": []
+}
