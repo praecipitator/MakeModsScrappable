@@ -77,11 +77,10 @@ namespace MakeModsScrappable
                     return;
                 }
 
-                var craftResult = cobj.CreatedObject.TryResolve(state.LinkCache);
+                // var craftResult = cobj.CreatedObject.TryResolve(state.LinkCache);
 
-                var omod = (craftResult as IAObjectModificationGetter);
-
-                if (omod == null || omod.LooseMod.IsNull)
+                if (!cobj.CreatedObject.TryResolve<IAObjectModificationGetter>(state.LinkCache, out var omod)
+                    || omod.LooseMod.IsNull)
                 {
                     return;
                 }
@@ -162,11 +161,9 @@ namespace MakeModsScrappable
                     }
                     uint numInt = (uint)num;
 
-                    // now do the resolve
-                    var comp = entry.Component.TryResolve(state.LinkCache);
 
-                    // is this a component?
-                    if (comp is not IComponentGetter)
+                    // now do the resolve
+                    if (!entry.Component.TryResolve<IComponentGetter>(state.LinkCache, out var comp))
                     {
                         continue;
                     }
